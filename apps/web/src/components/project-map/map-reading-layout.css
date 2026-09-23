@@ -1,0 +1,229 @@
+/* The inspector owns real space: the camera measures only the readable map. */
+.project-structure-map :is(.psm-agent-zone,.psm-agent-zone-label,.psm-branch-group) {
+  /* Region opacity and geometry now share the node frame clock. A second CSS
+     opacity tween would keep an obsolete title visible after its obstacle moved. */
+  transition: none !important;
+}
+.project-structure-map { container: project-map / inline-size; }
+/* Reading density must keep the product's main action available. */
+.project-structure-map[data-semantic-density="structure"] .psm-opinion { display: grid; }
+.project-structure-map[data-semantic-density="structure"] .psm-card-heading { margin-top: 0; }
+.project-structure-map[data-semantic-density="structure"] .psm-purpose { -webkit-line-clamp: 2; height: 36px; padding-right: 23px; }
+.project-structure-map .psm-stage {
+  height: clamp(540px,68svh,760px);
+  min-height: 0;
+  grid-template-rows: minmax(0,1fr);
+}
+.project-structure-map .psm-stage.has-context {
+  grid-template-columns: minmax(0,1fr) clamp(300px,32%,360px);
+}
+.project-structure-map .psm-stage .psm-viewport {
+  height: 100%; min-height: 0;
+  /* hidden still lets browser focus scroll this element, creating a second
+     camera offset. clip leaves all map movement with the camera transform. */
+  overflow: clip;
+}
+.project-structure-map .psm-context {
+  position: relative;
+  inset: auto;
+  z-index: 1;
+  width: auto;
+  height: 100%;
+  min-height: 0;
+  max-height: none;
+  padding: 0;
+  border: 0;
+  border-left: 1px solid #d8dfd5;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+  background: #fffefb;
+}
+.psm-context .gfc-card { max-height: none; overflow: visible; border: 0; border-radius: 0; box-shadow: none; }
+.psm-context .gfc-header { position: sticky; top: 0; z-index: 2; padding-block: 10px; background: #fffefbf5; border-bottom: 1px solid #e8ece4; }
+.psm-context .gfc-header>button { width: 32px; height: 32px; }
+.psm-context .gfc-location { padding-top: 12px; }
+.psm-context .gfc-record-title>span { font-size: 13px; }
+.psm-context .gfc-change header strong,.psm-context .gfc-result header strong { font-size: 13px; }
+.psm-context .gfc-result-actions a { font-size: 12px; padding: 6px 9px; }
+.project-structure-map[data-canvas-mode="focus"] .psm-stage { height: auto; min-height: 0; }
+.uw-map-frame .project-structure-map .psm-stage { height: auto; min-height: 0; }
+
+@container project-map (max-width: 720px) {
+  .project-structure-map .psm-stage.has-context {
+    grid-template-columns: minmax(0,1fr);
+    grid-template-rows: minmax(160px,1fr) minmax(0,.7fr);
+  }
+  .project-structure-map .psm-context { border-left: 0; border-top: 1px solid #c8d5c9; }
+  .psm-context .gfc-location { padding-block: 8px; }
+  .psm-context .gfc-location h2 { font-size: 15px; margin-bottom: 3px; }
+  .psm-context .gfc-location p { -webkit-line-clamp: 1; }
+  .psm-context .gfc-fact { display: none; }
+  .psm-context .gfc-header { padding-block: 5px; }
+  .psm-context .gfc-compose-toggle { margin-block: 5px; }
+  .psm-context .gfc-records { padding-block: 8px; }
+}
+
+/* Navigation and the optional overview consume real space outside the camera.
+   Only the middle row is measured by useProjectMapCamera's ResizeObserver. */
+.project-structure-map .psm-map-pane {
+  display: grid;
+  grid-template-rows: auto minmax(0,1fr) auto;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+.project-structure-map .psm-navigation-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  min-width: 0;
+  min-height: 46px;
+  padding: 5px 8px;
+  border-bottom: 1px solid #d8dfd5;
+  background: #fafbf7;
+}
+.project-structure-map .psm-navigation-row .psm-canvas-controls {
+  position: static;
+  inset: auto;
+  z-index: auto;
+  display: flex;
+  flex: 1 1 250px;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  width: auto;
+  min-width: 0;
+  max-width: none;
+  max-height: none;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  overflow: visible;
+  box-shadow: none;
+  backdrop-filter: none;
+  background: transparent;
+}
+.project-structure-map .psm-navigation-row .psm-canvas-controls button {
+  min-width: 34px;
+  height: 34px;
+  padding: 0 7px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.project-structure-map .psm-navigation-row .psm-canvas-controls button span,
+.project-structure-map .psm-navigation-row .psm-canvas-controls label>span { display: inline; }
+.project-structure-map .psm-navigation-row .psm-control-separator {
+  flex: 0 0 1px;
+  align-self: center;
+  width: 1px;
+  height: 24px;
+  margin: 0 3px;
+}
+.project-structure-map .psm-zoom-controls {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 1px;
+  border: 1px solid #d5ddd2;
+  border-radius: 6px;
+  background: #fff;
+}
+.project-structure-map .psm-zoom-controls output { min-width: 40px; font-size: 11px; }
+.project-structure-map .psm-navigation-row .psm-canvas-controls label {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 5px;
+  min-width: 0;
+  padding: 0 3px;
+  font-size: 12px;
+}
+.project-structure-map .psm-navigation-row .psm-canvas-controls select,
+.project-structure-map .psm-navigation-row .psm-canvas-controls select:focus {
+  width: auto;
+  min-width: 68px;
+  height: 34px;
+  padding: 0 5px;
+  color: #405249;
+  font-size: 12px;
+}
+.project-structure-map .psm-minimap-toggle {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  min-height: 34px;
+  margin-left: auto;
+  padding: 4px 8px;
+  border: 1px solid #cdd8ca;
+  border-radius: 6px;
+  background: #fff;
+  color: #50654f;
+  font: inherit;
+  font-size: 12px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.project-structure-map .psm-minimap-toggle[aria-expanded="true"] { background: #eaf2e7; border-color: #aac3a7; }
+.project-structure-map .psm-minimap-panel {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  min-width: 0;
+  padding: 4px 8px;
+  border-top: 1px solid #d8dfd5;
+  background: #f6f8f2;
+}
+.project-structure-map .psm-minimap-panel[hidden] { display: none; }
+.project-structure-map .psm-minimap-panel .psm-minimap {
+  position: static;
+  inset: auto;
+  z-index: auto;
+  flex: 0 0 auto;
+  box-sizing: border-box;
+  padding: 6px;
+  box-shadow: none;
+  background: #fff;
+}
+.project-structure-map .psm-minimap-panel .psm-navigation-hint {
+  position: static;
+  inset: auto;
+  z-index: auto;
+  display: block;
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-size: 11px;
+  line-height: 1.6;
+  color: #72816c;
+}
+@container project-map (max-width: 720px) {
+  /* The open overview uses part of the feedback area's height on a phone,
+     so its own occupied row does not leave less than one readable map card. */
+  .project-structure-map .psm-stage.has-context:has(.psm-minimap-panel:not([hidden])) {
+    grid-template-rows: minmax(0,1.4fr) minmax(0,.6fr);
+  }
+  .project-structure-map .psm-navigation-row { gap: 4px; padding-inline: 6px; }
+  .project-structure-map .psm-navigation-row .psm-canvas-controls { flex-basis: 230px; }
+  .project-structure-map .psm-navigation-row .psm-control-separator { display: none; }
+  .project-structure-map .psm-navigation-row .psm-canvas-controls label>span { display: none; }
+  .project-structure-map .psm-minimap-panel { gap: 0; padding: 3px 6px; }
+  .project-structure-map .psm-minimap-panel .psm-navigation-hint { display: none; }
+}
+.project-structure-map .psm-following-relations {
+  /* Geometry and per-route opacity come from the same node animation frame. */
+  opacity: 1;
+  transition: none;
+}
+.psm-relation-pages{display:inline-flex;align-items:center;gap:4px;flex:0 0 auto;white-space:nowrap;color:#496353;font-size:11px}.project-structure-map .psm-map-tools-row .psm-relation-pages button{padding:0 5px;height:25px}.psm-relation-pages button:disabled{opacity:.45}
+@container (max-width:650px){.psm-map-tools:has(.psm-relation-pages){flex-basis:auto}.psm-map-tools-row:has(.psm-relation-pages){height:auto;flex-wrap:wrap}.psm-map-tools-row:has(.psm-relation-pages) .psm-result-headline{display:none}.psm-relation-pages{order:3;flex-basis:100%;justify-content:center;font-size:11px}}

@@ -1,0 +1,14 @@
+node_modules/
+dist/
+coverage/
+playwright-report/
+test-results/
+.env
+.env.local
+.project/.runtime/
+.project/engineering/
+.project/task-workspaces/
+.project/supervision-runs/
+.project/external-receipts/
+*.log
+*.tsbuildinfo

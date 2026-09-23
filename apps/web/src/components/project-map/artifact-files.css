@@ -1,0 +1,22 @@
+.artifact-files{min-width:0;max-width:100%}
+.artifact-files .gfc-result-actions>button{padding:7px 10px;border:1px solid #aacbbd;border-radius:5px;background:#fff;color:#28634e;font:inherit;font-size:12px;cursor:pointer;overflow-wrap:anywhere}
+.artifact-files .gfc-result-actions>button[aria-expanded=true],.artifact-files .nr-actions>button[aria-expanded=true]{background:#eaf3ee;border-color:#5a9179}
+.artifact-files>.ar-file-menu{font-size:12px;margin:8px 0;color:#365f4e}
+.artifact-files>.ar-file-menu>summary{cursor:pointer;padding:5px 0}
+.artifact-reader{min-width:0;margin:12px 0 6px;padding:12px;border:1px solid #b6cac0;border-radius:8px;background:#fff;color:#30463b;overflow-wrap:anywhere;scroll-margin-top:64px}
+.artifact-reader:focus-visible,.artifact-reader button:focus-visible,.artifact-reader a:focus-visible,.artifact-reader pre:focus-visible{outline:2px solid #3b8870;outline-offset:2px}
+.artifact-reader>header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.artifact-reader>header>strong{font-size:14px;line-height:1.5}
+.artifact-reader>header>button,.artifact-reader .ar-error button{border:1px solid #c5d5cb;border-radius:5px;padding:5px 8px;background:#f6faf7;color:#365f4e;cursor:pointer;font:inherit;font-size:12px}
+.artifact-reader .ar-file{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;margin:8px 0!important;color:#5d7065;font-size:12px;line-height:1.6}
+.artifact-reader .ar-file>span{font-size:11px;padding:0 5px;border-radius:3px;background:#f3f4e9;color:#74653f}
+.artifact-reader .ar-note,.artifact-reader .ar-error{margin:8px 0!important;color:#8b572d;font-size:12px;line-height:1.7}
+.artifact-reader .ar-content{display:block;box-sizing:border-box;width:100%;max-width:100%;min-width:0;max-height:min(46dvh,440px);margin:8px 0;padding:12px;background:#fafbf8;border:1px solid #e0e7dd;border-radius:5px;overflow:auto;overscroll-behavior:contain;scrollbar-gutter:stable;white-space:pre-wrap;overflow-wrap:anywhere;word-break:normal;font:400 14px/1.85 system-ui,"Microsoft YaHei",sans-serif;tab-size:2;color:#263d33}
+.artifact-reader .ar-hint{font-size:11px;color:#748174;line-height:1.6;margin:6px 0!important}
+.artifact-reader .ar-message{font-size:13px;line-height:1.7;margin:12px 0!important}
+.artifact-reader .ar-source{font-size:11px;line-height:1.65;margin-top:8px}
+.artifact-reader .ar-source p{font-size:11px;line-height:1.65;margin:5px 0!important;color:#647367}
+.artifact-reader .ar-source a{display:inline-block;margin-top:5px;color:#356f59}
+.artifact-reader .ar-source summary{cursor:pointer;color:#557762}
+@media(max-width:440px){.artifact-reader{padding:10px}.artifact-reader .ar-content{padding:10px;max-height:42dvh}}
+@container project-map (max-width:720px){.project-structure-map .psm-stage.has-context:has(.artifact-reader){grid-template-rows:minmax(230px,.7fr) minmax(0,1fr)}}

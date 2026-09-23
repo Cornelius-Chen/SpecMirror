@@ -1,0 +1,10 @@
+import { engineeringCompositionCoverage, engineeringCompositionIssues, type EngineeringView } from "@epm/domain";
+import { engineeringNodeName } from "../engineering/node-names.ts";
+
+export function CompositionSummary({ view, nodeId, nodeNames, onEdit, onNavigate }: { view: EngineeringView; nodeId: string; nodeNames?: Record<string, string>; onEdit: () => void; onNavigate: (id: string) => void }) {
+  const node = view.document.nodes.find(item => item.id === nodeId);
+  if (!node || !view.document.nodes.some(item => item.parent_id === nodeId && item.status !== "archived")) return null;
+  const coverage = engineeringCompositionCoverage(view.document, nodeId), issues = engineeringCompositionIssues(view.document, nodeId);
+  const missing = coverage.filter(item => !item.covered);
+  return <section className="pni-composition" aria-label="整体怎样组成"><header><h3>这些部分怎样组成整体</h3><button type="button" onClick={onEdit}>修改分工说明</button></header><p>{node.composition?.summary || "组合说明尚未填写。现有连线只表示归属，还不能证明这些部分完整覆盖项目。"}</p><p className="pni-helper">{missing.length ? `${missing.length} 项完成条件尚无承接。` : "完成条件已有分工引用；是否拆得充分仍需核对。"} 本层整体通过需另行验收。</p><details><summary>查看分工与完整场景</summary>{coverage.map(item => <div className="pni-coverage-row" key={item.criterion_id}><strong>{node.criteria.find(criterion => criterion.id === item.criterion_id)?.text}</strong><div>{item.child_ids.map(id => { const child = view.document.nodes.find(candidate => candidate.id === id)!; return <button type="button" key={id} onClick={() => onNavigate(id)}>{engineeringNodeName(child, nodeNames)}</button>; })}{item.integration && <span>本层整合</span>}{!item.covered && <span className="pni-delivery-issue">尚无承接</span>}</div>{item.child_ids.map(id => { const child = view.document.nodes.find(candidate => candidate.id === id)!; return <p className="pni-helper" key={id}>{engineeringNodeName(child, nodeNames)}：{child.contribution?.summary || "具体贡献待说明"}</p>; })}</div>)}<h4>完整使用场景</h4><p>{node.composition?.scenario || "尚未说明组合后怎样判断真正可用。"}</p>{issues.map((issue, index) => <p className="pni-delivery-issue" key={index}>{issue}</p>)}</details></section>;
+}

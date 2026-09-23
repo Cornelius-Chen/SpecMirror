@@ -1,0 +1,14 @@
+.structure-proposal-invitation,.structure-proposal-review{margin:0 0 16px;color:#273c38;background:#faf8f2;border:1px solid #d8d3c7;border-radius:8px;}
+.structure-proposal-invitation,.structure-proposal-review>header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 20px;flex-wrap:wrap;}
+.structure-proposal-invitation p,.structure-proposal-review>header p{margin:6px 0 0;font-size:13px;color:#61716a;}
+.structure-proposal-review button,.structure-proposal-invitation button{font:inherit;padding:8px 12px;cursor:pointer;color:#245e50;background:#fffdf8;border:1px solid #c9d5cc;border-radius:5px;}
+.structure-proposal-review button:disabled,.structure-proposal-invitation button:disabled{opacity:.55;cursor:default;}
+.structure-proposal-review>.project-structure-map{border-left:0;border-right:0;border-radius:0;}
+.structure-proposal-auth-state{display:block;margin-top:7px;color:#8a671f;font-size:12px;}
+.structure-proposal-contract,.structure-proposal-review>footer{padding:18px 20px;border-top:1px solid #ded9ce;}
+.structure-proposal-contract h3{margin:0 0 8px;font-size:18px;}.structure-proposal-contract h4{margin:12px 0 8px;font-size:14px;}
+.structure-proposal-contract>div{display:grid;grid-template-columns:1fr 1.3fr;gap:24px;}.structure-proposal-contract p,.structure-proposal-contract li{font-size:14px;line-height:1.7;overflow-wrap:anywhere;}
+.structure-proposal-contract ul{padding-left:20px;}.structure-proposal-review>footer p{font-size:13px;line-height:1.7;}.structure-proposal-review>footer label{display:flex;gap:8px;align-items:flex-start;font-size:14px;line-height:1.6;margin-bottom:16px;}
+.structure-proposal-review>footer .structure-proposal-auth-warning{display:flex;align-items:flex-start;gap:8px;margin:14px 0;padding:10px 12px;border:1px solid #dec78f;border-radius:6px;background:#fff8e8;color:#72551b;}.structure-proposal-auth-warning strong{flex-shrink:0;}.structure-proposal-auth-warning span{color:#786a4a;}
+.structure-proposal-review>footer>button{background:#287b65;color:#fff;}.structure-proposal-review [role=alert],.structure-proposal-invitation [role=alert]{color:#9b4131;}
+@media(max-width:640px){.structure-proposal-contract>div{grid-template-columns:1fr;gap:8px;}.structure-proposal-contract,.structure-proposal-review>footer,.structure-proposal-review>header,.structure-proposal-invitation{padding:14px;}}

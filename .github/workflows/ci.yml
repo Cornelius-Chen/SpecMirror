@@ -1,0 +1,22 @@
+name: Public review slice
+on:
+  push:
+  pull_request:
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.33.2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @epm/orchestrator build
+      - run: pnpm --filter @epm/web build
+      - run: pnpm exec vitest run apps/orchestrator/test-fixtures/graph-feedback-loop.test.ts apps/web/src/components/project-map/feedback-execution.test.ts apps/web/src/components/project-map/feedback-comparison.test.ts
+      - run: pnpm exec playwright install --with-deps chromium
+      - run: pnpm exec playwright test --config tests/e2e/graph-feedback.playwright.config.ts --project graph-feedback-desktop -g "recorded changes, exact impact|delayed results cannot replace another selection"

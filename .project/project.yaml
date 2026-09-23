@@ -1,0 +1,23 @@
+schema_version: 1
+id: project-specmirror-public
+title: 映构 · 公开合成工程
+description: A fictional local engineering review workspace for the public source slice.
+repository:
+  main_branch: main
+  root: .
+runtime:
+  max_workers: 1
+  goal_timeout_minutes: 60
+  max_fix_retries: 0
+  max_execution_turns: 1
+  gateway: mock
+baselines: []
+frontier:
+  id: public-slice
+  title: 合成工程示例
+  status: draft
+  progress: 0
+  reason: Public fixture; no historical acceptance imported.
+next_best_action:
+  title: Inspect one feedback item and its linked result
+  reason: Public demo contains no human acceptance.

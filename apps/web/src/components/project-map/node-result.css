@@ -1,0 +1,24 @@
+.node-result-panel { min-width: 0; margin: 12px 0 18px; padding: 16px; border: 1px solid #bacfc8; border-radius: 12px; background: #f5faf8; color: #253b35; overflow-wrap: anywhere; }
+.node-result-panel > header { display: flex; gap: 12px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+.node-result-panel h3 { margin: 0; font-size: 15px; }
+.node-result-panel label { display: flex; align-items: center; gap: 6px; min-width: 0; max-width: 100%; font-size: 12px; }
+.node-result-panel select { min-width: 0; width: 180px; max-width: 100%; padding: 6px; border: 1px solid #b6c9c2; border-radius: 6px; background: white; color: inherit; }
+.node-result-panel .nr-status { display: flex; gap: 10px; justify-content: space-between; flex-wrap: wrap; margin: 14px 0 6px; font-size: 12px; color: #5e706a; }
+.node-result-panel .nr-status strong { color: #315e4e; }
+.node-result-panel .nr-status.is-attention strong, .node-result-panel .nr-error { color: #944219; }
+.node-result-panel .nr-summary { font-size: 14px; line-height: 1.65; margin: 10px 0; }
+.node-result-panel .nr-issues { margin: 12px 0; padding: 12px; background: #fff6e9; border-left: 3px solid #ba6e29; color: #764318; font-size: 13px; line-height: 1.6; }
+.node-result-panel ul { padding-left: 20px; margin: 6px 0; }
+.node-result-panel li + li { margin-top: 5px; }
+.node-result-panel .nr-actions { display: flex; align-items: flex-start; flex-wrap: wrap; gap: 8px; margin: 14px 0; }
+.node-result-panel .nr-actions > a, .node-result-panel .nr-actions > button, .node-result-panel .nr-open-menu > summary { display: inline-block; padding: 8px 12px; border: 1px solid #9db8ac; border-radius: 7px; background: #fff; color: #285443; font: inherit; font-size: 13px; text-decoration: none; cursor: pointer; }
+.node-result-panel .nr-actions > button:disabled { opacity: .55; cursor: default; }
+.node-result-panel .nr-open-menu { max-width: 100%; min-width: 0; }
+.node-result-panel small { display: block; color: #667870; margin-top: 4px; }
+.node-result-panel .nr-evidence { font-size: 12px; line-height: 1.6; color: #50665c; }
+.node-result-panel summary { cursor: pointer; }
+.node-result-panel dl > div { display: grid; grid-template-columns: minmax(75px, 1fr) minmax(0, 3fr); gap: 12px; margin: 8px 0; }
+.node-result-panel dd { margin: 0; }
+.node-result-panel blockquote { margin: 12px 0; border-left: 2px solid #a4bcb0; padding-left: 10px; }
+.node-result-panel .nr-refresh { padding: 4px 0; margin-top: 8px; border: 0; background: transparent; color: #496b5b; text-decoration: underline; cursor: pointer; font-size: 12px; }
+@media (max-width: 440px) { .node-result-panel { padding: 12px; } .node-result-panel > header { align-items: flex-start; } .node-result-panel label { width: 100%; } .node-result-panel select { flex: 1; } }

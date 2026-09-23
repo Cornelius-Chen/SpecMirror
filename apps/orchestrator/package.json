@@ -1,0 +1,22 @@
+{
+  "name": "@epm/orchestrator",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "start": "tsx src/server.ts",
+    "setup:human-approval": "tsx src/human-approval-setup.ts",
+    "build": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@epm/domain": "workspace:*",
+    "@epm/spec-io": "workspace:*",
+    "@fastify/cors": "^11.0.1",
+    "@fastify/static": "^8.2.0",
+    "@simplewebauthn/server": "14.0.1",
+    "commander": "^14.0.0",
+    "fastify": "^5.4.0",
+    "zod": "^4.0.5"
+  }
+}

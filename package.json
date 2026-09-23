@@ -1,0 +1,41 @@
+{
+  "name": "engine-process-manage",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.33.2",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "concurrently -n api,web -c '#d97706,#0f766e' \"pnpm --filter @epm/orchestrator dev\" \"pnpm --filter @epm/web dev\"",
+    "start": "pnpm --filter @epm/orchestrator start",
+    "build": "pnpm -r build",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "pnpm --filter @epm/web build && playwright test",
+    "test:e2e:archive": "pnpm --filter @epm/web build && playwright test archive.spec.ts",
+    "test:e2e:engineering-ui": "playwright test --config tests/e2e/engineering.playwright.config.ts",
+    "test:e2e:source-ui": "playwright test --config tests/e2e/task-inbox.playwright.config.ts",
+    "test:e2e:map-geometry": "playwright test --config tests/e2e/map-geometry.playwright.config.ts",
+    "capture:evidence": "node scripts/capture-supervision-evidence.mjs",
+    "smoke:codex": "tsx apps/orchestrator/src/codex-smoke.ts",
+    "epm": "tsx apps/orchestrator/src/cli.ts",
+    "validate:skills": "node scripts/validate-skills.mjs",
+    "validate:appserver": "node scripts/validate-appserver-protocol.mjs"
+  },
+  "devDependencies": {
+    "@openai/codex": "0.144.6",
+    "@playwright/test": "^1.54.1",
+    "@types/node": "^24.0.14",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@vitejs/plugin-react": "^4.6.0",
+    "concurrently": "^9.2.0",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3",
+    "vite": "^7.0.5",
+    "vitest": "^3.2.4"
+  }
+}
