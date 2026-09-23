@@ -4,6 +4,7 @@ import { deriveEngineeringView, engineeringContractKey, engineeringLineageVersio
 import { EngineeringFeedbackCreateSchema, EngineeringFeedbackSchema, engineeringFeedbackClosureCurrent, engineeringFeedbackScopeSnapshot, engineeringFeedbackTargetValue, type EngineeringFeedback } from "../../packages/domain/src/engineering-feedback.ts";
 import { inspectorDocument, inspectorNode, inspectorRun } from "../fixtures/project-inspector.ts";
 import type { EngineeringRunResult } from "../../apps/web/src/components/project-map/node-result-state.ts";
+import { installEnglishShowcase, untranslatedVisibleText } from "./english-showcase.ts";
 
 type ResultReply = { json?: unknown; status?: number; hold?: boolean };
 
@@ -712,6 +713,9 @@ test("recorded changes, exact impact and real artifacts return to the opinion lo
   await expect(record.getByRole("link", { name: /打开成果/ })).toHaveAttribute("href", /factor-quality\.html/);
   if (info.project.name === "graph-feedback-desktop") await page.setViewportSize({ width: 1920, height: 1200 });
   await originResult(page).scrollIntoViewIfNeeded();
+  await installEnglishShowcase(page);
+  await expect.poll(() => untranslatedVisibleText(page)).toEqual([]);
+  await page.waitForTimeout(2500);
   await page.screenshot({ path: info.outputPath("change-impact-result-at-origin.png"), fullPage: false });
   expect(requestedRuns(fixture)).toEqual([run.id]);
   expectReadOnly(fixture, beforeRead);

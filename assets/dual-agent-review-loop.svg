@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 780" role="img" aria-labelledby="title desc">
+<title id="title">SpecMirror research map: two evidence paths toward a dual-agent review loop</title>
+<desc id="desc">A feedback test binds an opinion to an exact result at its original node. A separate dual-agent service test freezes two leaf contracts, injects two agent identities, claims separate runs, writes separate artifacts, records token deltas, enters review, and calls human acceptance. The combined autonomous end-to-end path has not been verified.</desc>
+<defs><style>
+text{font-family:Inter,Segoe UI,Arial,sans-serif;fill:#17243b}.bg{fill:#f7f8f6}.card{fill:#fff;stroke:#c9d4d9;stroke-width:2}.blue{fill:#e9eef9;stroke:#5875b8;stroke-width:2}.teal{fill:#e5f1f0;stroke:#3b8b87;stroke-width:2}.amber{fill:#fdf0e2;stroke:#bd8346;stroke-width:2}.title{font-weight:700;font-size:30px}.label{font-weight:700;font-size:23px}.small{font-size:19px}.muted{fill:#566778;font-size:20px}.arrow{fill:none;stroke:#5a6d7e;stroke-width:3;marker-end:url(#head)}
+</style><marker id="head" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M1 1L9 5 1 9" fill="none" stroke="#5a6d7e" stroke-width="2"/></marker></defs>
+<rect class="bg" width="1500" height="780"/><text x="55" y="61" class="title">Two verified segments toward a dual-agent review loop</text><text x="55" y="97" class="muted">Feedback binding and parallel run mechanics are tested separately</text>
+<rect x="55" y="145" width="295" height="145" rx="14" class="card"/><text x="78" y="188" class="label">Feedback test</text><text x="78" y="226" class="small">Node / field / output target</text><text x="78" y="255" class="small">Exact submitted run binding</text>
+<rect x="405" y="145" width="315" height="145" rx="14" class="blue"/><text x="428" y="188" class="label">02  Freeze the work</text><text x="428" y="226" class="small">Two leaf contracts and owners</text><text x="428" y="255" class="small">Paths, criteria, version key</text>
+<path d="M351 216H398" class="arrow" stroke-dasharray="9 8"/>
+<rect x="790" y="145" width="300" height="145" rx="14" class="teal"/><text x="813" y="188" class="label">Agent A · tasks</text><text x="813" y="226" class="small">Claim run A, write artifact A</text><text x="813" y="255" class="small">Own scoped output path</text>
+<rect x="1145" y="145" width="300" height="145" rx="14" class="teal"/><text x="1168" y="188" class="label">Agent B · methods</text><text x="1168" y="226" class="small">Claim run B, write artifact B</text><text x="1168" y="255" class="small">Own scoped output path</text>
+<path d="M721 216H783M560 144V120H1295V138" class="arrow"/>
+<rect x="790" y="355" width="300" height="145" rx="14" class="card"/><text x="813" y="398" class="label">03A  Inspect run A</text><text x="813" y="436" class="small">Artifact exists; token delta</text><text x="813" y="465" class="small">Status: review</text>
+<rect x="1145" y="355" width="300" height="145" rx="14" class="card"/><text x="1168" y="398" class="label">03B  Inspect run B</text><text x="1168" y="436" class="small">Artifact exists; token delta</text><text x="1168" y="465" class="small">Status: review</text>
+<path d="M940 291V348M1295 291V348" class="arrow"/>
+<rect x="405" y="565" width="685" height="115" rx="14" class="amber"/><text x="428" y="606" class="label">04  Human reviews each exact result</text><text x="428" y="642" class="small">Acceptance is recorded per run; persisted results survive service restart.</text>
+<path d="M940 501V558M1295 501V529H1040V558" class="arrow"/>
+<rect x="55" y="565" width="295" height="115" rx="14" class="blue"/><text x="78" y="606" class="label">Separate UI test</text><text x="78" y="642" class="small">Original node, not latest run</text><path d="M398 624H356" class="arrow" stroke-dasharray="9 8"/>
+<text x="55" y="735" class="muted">Combined autonomous flow is unverified. Agent sessions and review calls in the dual-agent test are injected fixtures.</text>
+</svg>

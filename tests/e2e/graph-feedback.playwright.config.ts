@@ -5,6 +5,7 @@ export default defineConfig({
   outputDir: "../../test-results/graph-feedback-ui", use: { baseURL: "http://127.0.0.1:5223", browserName: "chromium", trace: "retain-on-failure", video: "on" },
   projects: [
     { name: "graph-feedback-desktop", use: { viewport: { width: 1440, height: 1000 } } },
+    { name: "graph-feedback-showcase", use: { viewport: { width: 1920, height: 1200 } }, grep: /recorded changes, exact impact and real artifacts/ },
     { name: "graph-feedback-phone", use: { viewport: { width: 390, height: 844 } } }
   ],
   webServer: { command: "pnpm --filter @epm/web dev --port 5223", url: "http://127.0.0.1:5223", reuseExistingServer: false, timeout: 60000 }

@@ -1,6 +1,6 @@
 # Review at the original opinion
 
-[← SpecMirror](../README.md) · [UI recording](../assets/review-at-origin.webm)
+[← SpecMirror](../README.md) · [English final-state clip](../assets/review-at-origin.webm)
 
 This release offers **two distinct, inspectable rehearsals**:
 
@@ -13,6 +13,6 @@ The [HTTP test](../apps/orchestrator/test-fixtures/graph-feedback-loop.test.ts) 
 
 The [UI test](../tests/e2e/graph-feedback.spec.ts) shows a recorded change, exact affected graph nodes and the submitted result at the opinion. Its `read the exact submitted report` and `recorded changes` cases check that the result belongs to the recorded `submitted_run_id`; its delayed-response case switches between opinions and verifies that an old response cannot replace the current one. These UI tests do not exercise the production authentication path.
 
-The included screenshot and video come from the `recorded changes, exact impact and real artifacts return to the opinion location` UI test. They are **test output**, not a user's real project or a human acceptance event. The app itself can be started against the included fictional `.project/` workspace, with normal authentication rules intact.
+The included screenshot and short final-state clip come from the `recorded changes, exact impact and real artifacts return to the opinion location` UI test. The test applies an **English presentation translation to visible labels after its behavior assertions**; the underlying product source still uses Chinese UI copy. The clip shows the resulting review state, while the test source records the interactions that reached it. These are **test outputs**, not a user's real project or a human acceptance event. The app itself can be started against the included fictional `.project/` workspace, with normal authentication rules intact.
 
 The remaining gap is a real user's local opinion, actual source edit, and authenticated human acceptance observed together through the production UI. A future Jervis learning claim would need a separate valid feedback receipt and new-task evaluation.

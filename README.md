@@ -2,11 +2,15 @@
 
 **A local engineering workbench for seeing a scoped request, its exact run, the source changes and the result at the original project node.** An agent may submit work; a person must decide whether to accept it.
 
+![Editable map of two separately verified engineering paths toward a dual-agent review loop](assets/dual-agent-review-loop.svg)
+
+**Engineering question.** Can a change to a project detail be divided into scoped agent work, tied to exact evidence, and reviewed at the same graph location? The [two-agent service experiment](docs/dual-agent-engineering.md) verifies separate claimed runs, artifact scopes, timing, token deltas, review state and persistence after restart. The feedback/UI experiments below verify exact opinion-to-run binding in a separate path. The joined autonomous end-to-end flow is not yet demonstrated.
+
 [![SpecMirror isolated UI rehearsal: the original opinion, affected nodes and the linked result share one view](assets/review-at-origin.png)](assets/review-at-origin.png)
 
-[Watch the actual UI test recording](assets/review-at-origin.webm) · [Read the evidence and limits](docs/review-at-origin.md)
+[Watch the English final-state clip](assets/review-at-origin.webm) · [Read the evidence and limits](docs/review-at-origin.md)
 
-The screenshot and recording are from an **isolated React/Playwright fixture** with invented project content and intercepted API responses. A separate isolated HTTP test runs the real service routes, writes a real local source change, checks it, and links the exact result to the feedback. The UI recording is not a production human acceptance receipt.
+The screenshot and clip are from an **isolated React/Playwright fixture** with invented project content and intercepted API responses. Visible labels were translated into English for the presentation after the behavior checks; this is not a product localization release. A separate isolated HTTP test runs the real service routes, writes a real local source change, checks it, and links the exact result to the feedback. The UI clip is not a production human acceptance receipt.
 
 ## Run locally
 
@@ -25,6 +29,7 @@ To reproduce the published evidence:
 pnpm --filter @epm/orchestrator build
 pnpm --filter @epm/web build
 pnpm exec vitest run apps/orchestrator/test-fixtures/graph-feedback-loop.test.ts apps/web/src/components/project-map/feedback-execution.test.ts apps/web/src/components/project-map/feedback-comparison.test.ts
+pnpm exec vitest run apps/orchestrator/src/engineering-dual-agent-closed-loop.test.ts
 pnpm exec playwright install chromium
 pnpm exec playwright test --config tests/e2e/graph-feedback.playwright.config.ts --project graph-feedback-desktop -g "recorded changes, exact impact"
 pnpm exec playwright test --config tests/e2e/graph-feedback.playwright.config.ts --project graph-feedback-desktop -g "delayed results cannot replace another selection"
@@ -49,6 +54,6 @@ This release retains the real source modules in `packages/domain/`, `packages/sp
 | Human authority cannot be inferred from a browser session or Agent header. | Keep approval routes behind authenticated human approval; isolated tests provide separate test identities. | `apps/orchestrator/src/human-approval.ts`; rejection tests in `graph-feedback-loop.test.ts`. |
 | A slow response may arrive after the reviewer switches nodes. | Tie result reads to the selected workspace, node, run and contract; ignore stale responses. | `tests/e2e/graph-feedback.spec.ts`. |
 
-**Evidence ceiling:** the public slice demonstrates a working local app, a source-backed isolated service loop and an isolated UI review path. It does **not** show a real person accepting the published fixture, an autonomous multi-agent completion, or feedback becoming a verified Jervis capability. SpecMirror’s current execution path uses its own Codex App Server/Companion integration; this release does not route work through the separate [SuperLocal Harness](https://github.com/Cornelius-Chen/SuperLocal-Harness).
+**Evidence ceiling:** the public slice demonstrates a working local app, a source-backed isolated feedback loop, an isolated UI review path, and a separate two-agent orchestration test. It does **not** show a real person accepting the published fixture, an autonomous multi-agent completion, or feedback becoming a verified Jervis capability. SpecMirror’s current execution path uses its own Codex App Server/Companion integration; this release does not route work through the separate [SuperLocal Harness](https://github.com/Cornelius-Chen/SuperLocal-Harness).
 
 No open-source license has been selected for this public source release.
