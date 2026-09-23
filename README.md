@@ -2,9 +2,11 @@
 
 **A local engineering workbench for seeing a scoped request, its exact run, the source changes and the result at the original project node.** An agent may submit work; a person must decide whether to accept it.
 
-![Editable map of two separately verified engineering paths toward a dual-agent review loop](assets/dual-agent-review-loop.svg)
+[![Illustrated SpecMirror engineering paths: opinion bound to an exact run and a separately tested two-agent service path](assets/specmirror-review-atlas.png)](assets/specmirror-review-atlas.png)
 
 **Engineering question.** Can a change to a project detail be divided into scoped agent work, tied to exact evidence, and reviewed at the same graph location? The [two-agent service experiment](docs/dual-agent-engineering.md) verifies separate claimed runs, artifact scopes, timing, token deltas, review state and persistence after restart. The feedback/UI experiments below verify exact opinion-to-run binding in a separate path. The joined autonomous end-to-end flow is not yet demonstrated.
+
+*The illustration is a conceptual guide to two separately tested paths. The screenshot and clip below show the isolated UI fixture.* [Editable technical map](assets/dual-agent-review-loop.svg).
 
 [![SpecMirror isolated UI rehearsal: the original opinion, affected nodes and the linked result share one view](assets/review-at-origin.png)](assets/review-at-origin.png)
 

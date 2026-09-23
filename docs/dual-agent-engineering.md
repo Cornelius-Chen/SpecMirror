@@ -4,9 +4,9 @@
 
 How can a project detail become two independently scoped work items whose artifacts, timing and resource use can be inspected and accepted without allowing one agent to overwrite the other's area?
 
-![Two separately verified segments of a proposed dual-agent review loop](../assets/dual-agent-review-loop.svg)
+![Illustrated engineering paths for exact feedback binding and separately tested two-agent service mechanics](../assets/specmirror-review-atlas.png)
 
-The solid part of the diagram describes the isolated dual-agent service test. Dashed connections to feedback and UI review mark an intended joined experience; their separate tests do not prove the combined autonomous path.
+The illustration places the feedback/UI and dual-agent service tests side by side. Their separate tests do not prove a combined autonomous path. [Editable technical map](../assets/dual-agent-review-loop.svg).
 
 ## Implemented mechanism
 
